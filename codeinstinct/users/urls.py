@@ -1,7 +1,19 @@
 from django.urls import path
-from users.views.view import UserListView
+import users.views.view as views
 
 urlpatterns = [
-    path('list/', UserListView.as_view(), name='user-list'),
-    # Other URL patterns for your project
+    path("list/", views.UserListView.as_view(), name="user-list"),
+    path(r"^$", views.home, name="home"),
+    path(r"^signup$", views.signup, name="signup"),
+    path(r"^signup/validate$", views.signup_validate, name="signup_validate"),
+    path(r"^login$", views.c_login, name="login"),
+    path(r"^login/send_otp$", views.send_otp, name="send_otp"),
+    path(r"^login/validate$", views.login_validate, name="login_validate"),
+    # path(r'^search$', views.search, name="search"),
+    path(
+        r"country/(?P<country_name>[\w|\W]+)$",
+        views.get_country_details,
+        name="country_page",
+    ),
+    path(r"^logout$", views.c_logout, name="logout"),
 ]
