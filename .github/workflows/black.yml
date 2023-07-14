@@ -1,14 +1,19 @@
 name: Lint
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
-  lint:
+  test_black:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: psf/black@stable
+      - uses: actions/setup-python@v4
         with:
-          options: "--check --verbose"
-          src: "./src"
-          version: "21.5b1"
+          python-version : '3.9.4'
+      - run: pip install black
+      - run: black . --check
