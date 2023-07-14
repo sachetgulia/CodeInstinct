@@ -71,7 +71,7 @@ def signup_validate(request):
         return JsonResponse(result)
 
     if not first_name:
-        result = {"success": False , "message": "first name not found"}
+        result = {"success": False, "message": "first name not found"}
         return JsonResponse(result)
 
     try:
