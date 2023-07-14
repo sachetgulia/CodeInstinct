@@ -1,4 +1,4 @@
-name: Lint
+name: black_formatting_check
 
 on:
   push:
