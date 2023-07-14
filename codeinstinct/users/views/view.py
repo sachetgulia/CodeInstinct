@@ -23,7 +23,7 @@ from django.db import IntegrityError
 
 # from haystack.query import SearchQuerySet
 
-from users.utils.utils import otp_generator, send_otp_email, validate_otp
+from users.utils.main import otp_generator, send_otp_email, validate_otp
 from users.models.users import User
 from users.models.city import City, Country, Countrylanguage
 
