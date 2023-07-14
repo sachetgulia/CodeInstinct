@@ -1,0 +1,19 @@
+name: black_formatting_check
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  test_black:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version : '3.9.4'
+      - run: pip install black
+      - run: black . --check
