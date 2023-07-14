@@ -1,6 +1,6 @@
 from django.views import View
 from django.shortcuts import render
-from codeinstinct.users.models.users import User
+from users.models.users import User
 
 class UserListView(View):
     def get(self, request):
