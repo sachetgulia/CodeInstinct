@@ -25,7 +25,6 @@ from django.db import IntegrityError
 
 from users.utils.main import otp_generator, send_otp_email, validate_otp
 from users.models.users import User
-from users.models.city import City, Country, Countrylanguage
 
 
 @login_required
@@ -158,10 +157,3 @@ def c_logout(request):
     logout(request)
     return HttpResponseRedirect("/login")
 
-
-@login_required
-def get_country_details(request, country_name):
-    country = Country.objects.get(name=country_name)
-    result = {"country": country}
-
-    return render(request, "country.html", result)
