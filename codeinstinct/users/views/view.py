@@ -156,4 +156,3 @@ def login_validate(request):
 def c_logout(request):
     logout(request)
     return HttpResponseRedirect("/login")
-
