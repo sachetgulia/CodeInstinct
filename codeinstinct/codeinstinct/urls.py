@@ -21,5 +21,5 @@ from django.conf.urls import include
 app_name = "codeinstinct"
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path(r"^users/", include(("users.urls", app_name), namespace="users")),
+    path("users/", include(("users.urls", "users"), namespace="users")),
 ]
