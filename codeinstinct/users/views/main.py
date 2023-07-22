@@ -5,16 +5,16 @@ from users.serializers.main import UserSerializer
 from rest_framework.response import Response
 
 
-class UserListView(generics.ListAPIView):
+class UserListView(generics.GenericAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    def list(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         queryset = self.get_queryset()
         serializer = UserSerializer(queryset, many=True)
         return Response(serializer.data)
 
-    def create(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
