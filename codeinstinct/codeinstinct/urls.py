@@ -18,8 +18,11 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import include
 
+from codeinstinct.main import HealthCheckView
+
 app_name = "codeinstinct"
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("health-check/", HealthCheckView.as_view()),
     path("users/", include(("users.urls", "users"), namespace="users")),
 ]
