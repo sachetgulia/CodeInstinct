@@ -1,8 +1,8 @@
-from django.views import View
 from rest_framework import generics
 from users.models.users import User
 from users.serializers.main import UserSerializer
 from rest_framework.response import Response
+import logging
 
 
 class UserListView(generics.GenericAPIView):
