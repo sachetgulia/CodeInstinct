@@ -3,6 +3,7 @@ from users.models.users import User
 from users.serializers.main import UserSerializer
 from rest_framework.response import Response
 import logging
+#have to look for a better logging option
 
 
 class UserListView(generics.GenericAPIView):
