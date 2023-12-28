@@ -1,0 +1,15 @@
+name: black_formatting_checks
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test_black:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version : '3.9.4'
+      - run: pip install black
+      - run: black . --check
